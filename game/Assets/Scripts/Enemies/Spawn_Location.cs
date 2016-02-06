@@ -27,6 +27,11 @@ public class Spawn_Location : MonoBehaviour {
     public void Spawn_Enemy()
     {
         GameObject new_enemy = (GameObject) GameObject.Instantiate(enemy_, new Vector3(this.transform.position.x, 0.0f, this.transform.position.z), this.transform.rotation);
+
+        var gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.remainingEnemies++;
+        gameManager.spawnedEnemies++;
+
         Enemy_Walk walk = new_enemy.GetComponent<Enemy_Walk>();
         walk.Set_Target(target_location_);
     }
