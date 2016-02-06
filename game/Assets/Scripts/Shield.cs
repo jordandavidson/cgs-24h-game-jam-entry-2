@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Shield : MonoBehaviour {
 
@@ -12,4 +11,12 @@ public class Shield : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name.Contains("Projectile"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
