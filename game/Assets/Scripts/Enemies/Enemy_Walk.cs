@@ -11,6 +11,7 @@ public class Enemy_Walk : MonoBehaviour {
 
     public bool is_moving_ = true;
 
+    public Vector3 target_position_;
     public Target_Location target_;
     public void Set_Target(Target_Location target_location)
     {
@@ -21,7 +22,8 @@ public class Enemy_Walk : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        actual_speed_ = Vector3.Distance(this.transform.position, target_.transform.position) / (60.0f * minimum_time_taken_);
+        target_position_ = target_.transform.position;
+        actual_speed_ = Vector3.Distance(this.transform.position, target_position_) / (60.0f * minimum_time_taken_);
 	}
 	
 	// Update is called once per frame
@@ -29,21 +31,32 @@ public class Enemy_Walk : MonoBehaviour {
         if (is_moving_)
         {
             Update_Velocity();
+
+            this.transform.position = this.transform.position + velocity_;
             if (debug_mode_)
             {
-                Debug.DrawLine(this.transform.position, this.transform.position + velocity_);
+                // Movement line
+                Debug.DrawLine(this.transform.position, target_position_, Color.red, 1.0f);
+                Debug.DrawLine(this.transform.position, this.transform.position + velocity_, Color.blue, 1.0f);
             }
-            this.transform.position = this.transform.position + velocity_;
         }
     }
 
-    void Fixed_Update() {
-
+    void OnCollisionEnter (Collision collision) {
+        Health target_health = collision.gameObject.GetComponent<Health>();
+        if (target_health == null) {
+            // The enemy is non-destructible
+            // We need to change direction
+        } else {
+            // The enemy is destructible
+            // KEEP GOING!
+            Debug.Log("COLLIDED WITH DESTRUCTIBLE OBJECT");
+        }
     }
 
     private void Update_Velocity()
     {
-        direction_ = target_.transform.position - this.transform.position;
+        direction_ = target_position_ - this.transform.position;
         direction_.Normalize();
 
         velocity_ = direction_ * actual_speed_;
