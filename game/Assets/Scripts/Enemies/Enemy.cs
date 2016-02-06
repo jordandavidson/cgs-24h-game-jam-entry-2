@@ -12,4 +12,12 @@ public class Enemy : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name.Contains("Projectile"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

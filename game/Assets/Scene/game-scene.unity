@@ -4713,7 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e8e588ce6f6f642af30592b03e9982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction_: 1
+  faction_: 0
   health_: 1
 --- !u!114 &1923496969
 MonoBehaviour:
@@ -4897,6 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69e7320b564a5d46a0fe652bb20f9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldBash: {fileID: 0}
 --- !u!23 &1941989020
 Renderer:
   m_ObjectHideFlags: 0
