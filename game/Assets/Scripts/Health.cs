@@ -27,6 +27,8 @@ public class Health : MonoBehaviour {
         health_ += amount;
         if (health_ <= 0) {
             GameObject.Destroy(this.gameObject);
+            var gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameManager.remainingEnemies--;
         }
     }
 

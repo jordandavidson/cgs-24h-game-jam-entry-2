@@ -28,8 +28,9 @@ GameObject:
   - 4: {fileID: 486004}
   - 54: {fileID: 5411268}
   - 114: {fileID: 11497800}
+  - 114: {fileID: 11409402}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,6 +219,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &11409402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a39495cf1fc7b044be275ecb4cb0ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction_: 0
+  damage_: 1
 --- !u!114 &11497800
 MonoBehaviour:
   m_ObjectHideFlags: 1

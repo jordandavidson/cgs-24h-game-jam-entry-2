@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (timeAlive > 8.0f)
+        if (timeAlive > 2.0f)
         {
             Destroy(gameObject);
         }

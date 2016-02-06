@@ -75,7 +75,9 @@ public class Enemy_Walk : MonoBehaviour {
             }
         } else {
             // We've reached the location!
-            GameObject.Destroy(this.gameObject);
+            Destroy(this.gameObject);
+            var gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameManager.remainingEnemies--;
         }
     }
 
