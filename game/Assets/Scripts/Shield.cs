@@ -20,7 +20,7 @@ public class Shield : MonoBehaviour {
             player_.ReduceMovement();
         } else if (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
             player_.ResumeMovement();
-            shield_.SetActive(true);
+            shield_.SetActive(false);
             this_animator_.SetBool("marching_", false);
         }
     }
