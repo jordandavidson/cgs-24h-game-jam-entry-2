@@ -51,6 +51,7 @@ public class CharacterSelectManager : MonoBehaviour {
 
         currentCharacter = Instantiate(character, spawnLocation.transform.position, Quaternion.identity) as GameObject;
         currentCharacter.SetActive(true);
+        currentCharacter.transform.Rotate(new Vector3(0.0f, 90.0f, 0.0f));
         var player = currentCharacter.GetComponent<Player>();
         player.ID = playerID;
     }
