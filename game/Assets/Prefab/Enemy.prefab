@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug_mode_: 1
-  minimum_time_taken_: 5
+  minimum_time_taken_: 10
   velocity_: {x: 0, y: 0, z: 0}
   direction_: {x: 0, y: 0, z: 0}
   is_moving_: 1

@@ -31,12 +31,14 @@ public class Player : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.D)) {
                 rigidbody.MovePosition(rigidbody.position + Vector3.right * MovementSpeed * Time.deltaTime);
-                this_animator_.SetBool("moving_forwards_", true);
+                if (this_animator_)
+                    this_animator_.SetBool("moving_forwards_", true);
             }
 
             if (Input.GetKey(KeyCode.A)) {
                 rigidbody.MovePosition(rigidbody.position - Vector3.right * MovementSpeed * Time.deltaTime);
-                this_animator_.SetBool("moving_forwards_", false);
+                if (this_animator_)
+                    this_animator_.SetBool("moving_forwards_", false);
             }
         }
         else if (ID == 2) {
