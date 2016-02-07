@@ -66,6 +66,7 @@ GameObject:
   - 114: {fileID: 11440024}
   - 114: {fileID: 11440022}
   - 114: {fileID: 11440020}
+  - 65: {fileID: 6585886}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -614,7 +615,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140022}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: .5, z: 0}
+=======
+  m_LocalPosition: {x: -16.2800007, y: 4.36999989, z: -7.53000021}
+>>>>>>> origin/master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440088}
@@ -1117,8 +1122,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 2
+--- !u!65 &6585886
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .466731071, z: 1.15972757}
+  m_Center: {x: 9.51968104e-09, y: .168237209, z: -.07985688}
 --- !u!95 &9540016
 Animator:
   serializedVersion: 3

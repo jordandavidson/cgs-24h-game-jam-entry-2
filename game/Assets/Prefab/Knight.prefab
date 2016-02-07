@@ -525,6 +525,7 @@ GameObject:
   - 114: {fileID: 11432088}
   - 114: {fileID: 11432086}
   - 114: {fileID: 11432084}
+  - 65: {fileID: 6580666}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -1013,7 +1014,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158596}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: .5, z: 0}
+=======
+  m_LocalPosition: {x: -9.47000027, y: 1.07000005, z: -1.67999995}
+>>>>>>> origin/master
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458598}
@@ -1058,7 +1063,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!54 &5458548
 Rigidbody:
@@ -1099,6 +1104,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6580666
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .490285635, z: .87792635}
+  m_Center: {x: 7.39205188e-06, y: .254857183, z: -.00901794527}
 --- !u!95 &9558548
 Animator:
   serializedVersion: 3
