@@ -3,6 +3,7 @@
 public class Player : MonoBehaviour {
 
     public float MovementSpeed = 10.0f;
+    public float DesiredSpeed = 10.0f;
     public float TurningSpeed = 60.0f;
 
     public int ID;
@@ -46,4 +47,12 @@ public class Player : MonoBehaviour {
         }
 
 	}
+
+    public void StartMovement() {
+        MovementSpeed = DesiredSpeed;
+    }
+
+    public void StopMovement() {
+        MovementSpeed = 0.0f;
+    }
 }

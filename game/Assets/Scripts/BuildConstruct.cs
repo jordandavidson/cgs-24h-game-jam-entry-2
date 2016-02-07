@@ -12,14 +12,9 @@ public class BuildConstruct : MonoBehaviour {
     public PreConstruction pre_wall_;
     public PreConstruction pre_tower_;
 
-    //private Vector3 pre_wall_offset_;
-    //private Vector3 pre_tower_offset_;
-
     // Use this for initialization
     void Start () {
         player = gameObject.GetComponent<Player>();
-        //pre_wall_offset_ = pre_wall_.transform.localPosition;
-        //pre_tower_offset_ = pre_tower_.transform.localPosition;
     }
 	
 	// Update is called once per frame

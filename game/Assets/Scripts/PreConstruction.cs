@@ -12,6 +12,7 @@ public class PreConstruction : MonoBehaviour {
     private float start_blueprint_;
 
     private bool colliding_ = false;
+    private bool repaired_ = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,10 @@ public class PreConstruction : MonoBehaviour {
         colliding_ = false;
         visualisation_.material = Resources.Load<Material>("Valid_Construction");
         visualisation_.enabled = true;
+        if (repaired_) {
+            next_construct_update_ = Time.time + construct_delay_;
+            repaired_ = false;
+        }
     }
 	
 	// Update is called once per frame
@@ -43,7 +48,7 @@ public class PreConstruction : MonoBehaviour {
                 if (current_time > (start_blueprint_ + 0.5f) &&
                     current_time > next_construct_update_) {
                     building_health_.Edit_Health(1);
-                    next_construct_update_ = current_time + construct_delay_;
+                    repaired_ = true;
                 }
             }
         }

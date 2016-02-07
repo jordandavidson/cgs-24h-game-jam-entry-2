@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1500001, y: 0, z: 0}
+  m_LocalPosition: {x: 5.44999981, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489168}
@@ -129,7 +129,7 @@ MonoBehaviour:
   faction_: 0
   health_: 5
   max_health_: 10
-  flash_target_: {fileID: 0}
+  flash_target_: {fileID: 2389170}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

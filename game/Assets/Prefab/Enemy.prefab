@@ -115,8 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e8e588ce6f6f642af30592b03e9982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_building_: 0
   faction_: 1
   health_: 1
+  max_health_: 10
+  flash_target_: {fileID: 2342388}
 --- !u!114 &11436062
 MonoBehaviour:
   m_ObjectHideFlags: 1
