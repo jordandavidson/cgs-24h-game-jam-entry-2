@@ -2938,6 +2938,10 @@ Prefab:
       propertyPath: spawnLocation
       value: 
       objectReference: {fileID: 1231912375}
+    - target: {fileID: 11474692, guid: c1fecd7446e9c774f8fe7e2719cfb132, type: 2}
+      propertyPath: Hunter
+      value: 
+      objectReference: {fileID: 170654, guid: 3ebb2ffac8972a944b8d0383f8a76c00, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1fecd7446e9c774f8fe7e2719cfb132, type: 2}
   m_RootGameObject: {fileID: 374035230}
@@ -4232,6 +4236,10 @@ Prefab:
       propertyPath: Builder
       value: 
       objectReference: {fileID: 127658, guid: 947c4573157c1f54296a46934ea08556, type: 2}
+    - target: {fileID: 11474692, guid: c1fecd7446e9c774f8fe7e2719cfb132, type: 2}
+      propertyPath: Hunter
+      value: 
+      objectReference: {fileID: 170654, guid: 3ebb2ffac8972a944b8d0383f8a76c00, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1fecd7446e9c774f8fe7e2719cfb132, type: 2}
   m_RootGameObject: {fileID: 1234472680}
@@ -4631,7 +4639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7534788d77077d44b8da8d19c5ea6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hunter: {fileID: 160176, guid: 88fc849b2a4db6c4ba7124233e6251c6, type: 2}
+  Hunter: {fileID: 170654, guid: 3ebb2ffac8972a944b8d0383f8a76c00, type: 2}
   Wizard: {fileID: 140022, guid: ef7fc6eacbcd42949968f405c404b144, type: 2}
   Builder: {fileID: 127658, guid: 947c4573157c1f54296a46934ea08556, type: 2}
   Knight: {fileID: 158596, guid: ee763c998104e00438ea9b2b22253876, type: 2}
@@ -7703,7 +7711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7534788d77077d44b8da8d19c5ea6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hunter: {fileID: 160176, guid: 88fc849b2a4db6c4ba7124233e6251c6, type: 2}
+  Hunter: {fileID: 170654, guid: 3ebb2ffac8972a944b8d0383f8a76c00, type: 2}
   Wizard: {fileID: 140022, guid: ef7fc6eacbcd42949968f405c404b144, type: 2}
   Builder: {fileID: 127658, guid: 947c4573157c1f54296a46934ea08556, type: 2}
   Knight: {fileID: 158596, guid: ee763c998104e00438ea9b2b22253876, type: 2}

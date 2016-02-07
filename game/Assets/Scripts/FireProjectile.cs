@@ -16,7 +16,7 @@ public class FireProjectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (player.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
+        if (player.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Slash))) {
             if (!player)
                 return;
 
