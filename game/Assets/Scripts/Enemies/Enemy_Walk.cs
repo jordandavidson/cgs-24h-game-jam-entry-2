@@ -14,6 +14,9 @@ public class Enemy_Walk : MonoBehaviour {
 
     public Vector3 target_position_;
     public Target_Location target_;
+
+    Vector3 min_bounds_ = new Vector3(-20.0f, -20.0f, -20.0f);
+    Vector3 max_bounds_ = new Vector3(20.0f, 20.0f, 20.0f);
     public void Set_Target(Target_Location target_location)
     {
         target_ = target_location;
@@ -33,6 +36,13 @@ public class Enemy_Walk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (this.transform.position.x > max_bounds_.x ||
+            this.transform.position.x < min_bounds_.x ||
+            this.transform.position.z > max_bounds_.z ||
+            this.transform.position.z < min_bounds_.z)
+        {
+            Destroy(this.gameObject);
+        }
         if (is_moving_)
         {
             float current_time = Time.time;
