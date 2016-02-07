@@ -4,53 +4,64 @@ using System.Collections;
 public class BuildConstruct : MonoBehaviour {
 
     
-    private Player player;
+    private Player player_;
 
-    private float construction_finished_ = 0.0f;
+    public float build_delay_ = 1.0f;
+    public float construction_finished_ = 0.0f;
     private bool blueprinting_ = false;
+    private bool building_ = false;
 
     public PreConstruction pre_wall_;
     public PreConstruction pre_tower_;
 
+    public Animator this_animator_;
+
     // Use this for initialization
     void Start () {
-        player = gameObject.GetComponent<Player>();
+        player_ = gameObject.GetComponent<Player>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        float current_time = Time.time;
-        if (current_time > construction_finished_) {
-            Attempt_Build();
-        }
+        Attempt_Build();
 	}
 
     void Attempt_Build() {
-        if (!player)
+        if (!player_)
             return;
 
-
-
-        if (blueprinting_) {
-            // Already preparing to build
-            if (player.ID == 1 && Input.GetKeyUp(KeyCode.X) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Slash))) {
-
-                pre_wall_.Construct();
-                blueprinting_ = false;
-            } else if (player.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
-
-                pre_tower_.Construct();
-                blueprinting_ = false;
-            }
+        float current_time = Time.time;
+        if (building_ &&
+            current_time > construction_finished_) {
+            pre_wall_.Construct();
+            pre_tower_.Construct();
+            building_ = false;
+            this_animator_.SetBool("building_", false);
+            player_.ResumeMovement();
         } else {
-            if (player.ID == 1 && Input.GetKeyDown(KeyCode.X) || (player.ID == 2 && Input.GetKeyDown(KeyCode.Slash))) {
-                pre_wall_.Blueprint();
-                //pre_wall_.transform.position = this.transform.position + pre_wall_offset_;
-                blueprinting_ = true;
-            } else if (player.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
-                pre_tower_.Blueprint();
-                //pre_tower_.transform.position = this.transform.position + pre_wall_offset_;
-                blueprinting_ = true;
+            if (blueprinting_) {
+                // Already preparing to build
+                if ((player_.ID == 1 && Input.GetKeyUp(KeyCode.X) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Slash))) ||
+                    (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Greater)))) {
+                    blueprinting_ = false;
+                    building_ = true;
+                    this_animator_.SetBool("repairing_", false);
+                    this_animator_.SetBool("building_", true);
+                    construction_finished_ = current_time + build_delay_;
+                    player_.StopMovement();
+                }
+            } else {
+                if (player_.ID == 1 && Input.GetKeyDown(KeyCode.X) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Slash))) {
+                    player_.ReduceMovement();
+                    this_animator_.SetBool("repairing_", true);
+                    pre_wall_.Blueprint();
+                    blueprinting_ = true;
+                } else if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+                    player_.ReduceMovement();
+                    this_animator_.SetBool("repairing_", true);
+                    pre_tower_.Blueprint();
+                    blueprinting_ = true;
+                }
             }
         }
     }

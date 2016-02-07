@@ -56,7 +56,7 @@ public class PreConstruction : MonoBehaviour {
 
     public void Construct()
     {
-        if (colliding_) {
+        if (colliding_ || !this.gameObject.activeSelf) {
 
         } else {
             // There are no current collisions!
