@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
@@ -20,4 +19,9 @@ public class Projectile : MonoBehaviour {
 
         timeAlive += Time.deltaTime;
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
 }
