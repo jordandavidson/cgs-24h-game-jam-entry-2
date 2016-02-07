@@ -5770,7 +5770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield_: {fileID: 1941989017}
   this_animator_: {fileID: 1675737531}
-  player_: {fileID: 0}
+  player_: {fileID: 974216805}
 --- !u!1 &982994310
 GameObject:
   m_ObjectHideFlags: 0

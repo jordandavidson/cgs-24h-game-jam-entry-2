@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield_: {fileID: 158600}
   this_animator_: {fileID: 9558548}
-  player_: {fileID: 0}
+  player_: {fileID: 11432088}
 --- !u!114 &11432086
 MonoBehaviour:
   m_ObjectHideFlags: 1
