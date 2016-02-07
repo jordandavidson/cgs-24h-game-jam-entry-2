@@ -14,6 +14,8 @@ public class TowerProjectile : MonoBehaviour {
 
     public float range_ = 5.0f;
 
+    public bool active_ = false;
+
     private Health this_health_;
 
     // Use this for initialization
@@ -24,10 +26,17 @@ public class TowerProjectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (attack_target_ == null) {
+        if (active_) {
+            if (attack_target_ == null) {
 
+            } else {
+                Fire_Projectile();
+            }
         } else {
-            Fire_Projectile();
+            if (this_health_ != null &&
+                this_health_.Is_At_Max_Health()) {
+                active_ = true;
+            }
         }
     }
 
@@ -49,26 +58,28 @@ public class TowerProjectile : MonoBehaviour {
     }
 
     void Fire_Projectile() {
-        float current_time = Time.time;
-        if (current_time > next_attack_) {
-            if (attack_target_ == null) {
-                // We shouldn't fire because our target is null!
-            } else if (Vector3.Distance(this.transform.position, attack_target_.position) > range_) {
-                // The target is now out of range.
-                attack_target_ = null;
-            } else {
-                // The target is in range, so attack it!
-                next_attack_ = current_time + attack_cooldown_;
+        if (active_) {
+            float current_time = Time.time;
+            if (current_time > next_attack_) {
+                if (attack_target_ == null) {
+                    // We shouldn't fire because our target is null!
+                } else if (Vector3.Distance(this.transform.position, attack_target_.position) > range_) {
+                    // The target is now out of range.
+                    attack_target_ = null;
+                } else {
+                    // The target is in range, so attack it!
+                    next_attack_ = current_time + attack_cooldown_;
 
-                GameObject projectile = Instantiate(projectilePrefab,
-                                                    attack_spawn_.position,
-                                                    Quaternion.identity) as GameObject;
-                Rigidbody rigidBody = projectile.GetComponent<Rigidbody>();
-                Vector3 direction = attack_target_.position - attack_spawn_.position;
-                direction.Normalize();
+                    GameObject projectile = Instantiate(projectilePrefab,
+                                                        attack_spawn_.position,
+                                                        Quaternion.identity) as GameObject;
+                    Rigidbody rigidBody = projectile.GetComponent<Rigidbody>();
+                    Vector3 direction = attack_target_.position - attack_spawn_.position;
+                    direction.Normalize();
 
-                rigidBody.velocity = direction * 10.0f;
-                //Debug.DrawLine(attack_spawn_.position, attack_target_.position, Color.green, 1.0f);
+                    rigidBody.velocity = direction * 10.0f;
+                    //Debug.DrawLine(attack_spawn_.position, attack_target_.position, Color.green, 1.0f);
+                }
             }
         }
     }

@@ -16,6 +16,8 @@ public class Health : MonoBehaviour {
     public int health_ = 1;
     public int max_health_ = 10;
 
+    public Renderer flash_target_;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -38,6 +40,12 @@ public class Health : MonoBehaviour {
                 gameManager.remainingEnemies--;
             }
         }
+
+        if (amount > 0) {
+            StartCoroutine(Flash_Colour(Color.blue, Color.white));
+        } else if (amount < 0) {
+            StartCoroutine(Flash_Colour(Color.red, Color.white));
+        }
     }
 
     public bool Is_Faction(Faction faction)
@@ -47,6 +55,16 @@ public class Health : MonoBehaviour {
 
     public bool Is_At_Max_Health() {
         return health_ == max_health_;
+    }
+
+    IEnumerator Flash_Colour (Color flash_colour, Color normal_colour) {
+        for (int i = 0; i < 10; ++i) {
+            float weight = (float) i / 10.0f;
+            flash_target_.material.color = new Color(Mathf.Lerp(flash_colour.r, normal_colour.r, weight),
+                                                     Mathf.Lerp(flash_colour.g, normal_colour.g, weight),
+                                                     Mathf.Lerp(flash_colour.b, normal_colour.b, weight));
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
 }
