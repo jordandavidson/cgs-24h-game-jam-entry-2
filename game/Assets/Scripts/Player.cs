@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
 
     public int ID;
 
+    public Animator this_animator_;
+
 	// Use this for initialization
 	void Start () {
 
@@ -19,31 +21,43 @@ public class Player : MonoBehaviour {
 
         if (ID == 1) {
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W)) {
                 rigidbody.MovePosition(rigidbody.position + Vector3.forward * MovementSpeed * Time.deltaTime);
+            }
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S)) {
                 rigidbody.MovePosition(rigidbody.position - Vector3.forward * MovementSpeed * Time.deltaTime);
+            }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D)) {
                 rigidbody.MovePosition(rigidbody.position + Vector3.right * MovementSpeed * Time.deltaTime);
+                this_animator_.SetBool("moving_forwards_", true);
+            }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A)) {
                 rigidbody.MovePosition(rigidbody.position - Vector3.right * MovementSpeed * Time.deltaTime);
+                this_animator_.SetBool("moving_forwards_", false);
+            }
         }
         else if (ID == 2) {
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow)) {
                 rigidbody.MovePosition(rigidbody.position + Vector3.forward * MovementSpeed * Time.deltaTime);
+            }
 
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow)) {
                 rigidbody.MovePosition(rigidbody.position - Vector3.forward * MovementSpeed * Time.deltaTime);
+            }
 
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow)) {
                 rigidbody.MovePosition(rigidbody.position + Vector3.right * MovementSpeed * Time.deltaTime);
+                this_animator_.SetBool("moving_forwards_", true);
+            }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow)) {
                 rigidbody.MovePosition(rigidbody.position - Vector3.right * MovementSpeed * Time.deltaTime);
+                this_animator_.SetBool("moving_forwards_", false);
+            }
         }
 
 	}

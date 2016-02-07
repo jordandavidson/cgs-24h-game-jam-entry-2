@@ -3,43 +3,59 @@ using System.Collections;
 
 public class Magic : MonoBehaviour {
 
-    private Player player;
+    private Player player_;
 
     public Healing_Zone healing_zone_;
     public PreConstruction pre_landmine_;
 
-    private bool blueprinting_ = false;
+    private float finish_laying_mine_;
+    private bool laying_mine_;
+
+    public Animator this_animator_;
 
     // Use this for initialization
     void Start () {
-        player = gameObject.GetComponent<Player>();
+        player_ = gameObject.GetComponent<Player>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (player.ID == 1 && Input.GetKeyUp(KeyCode.X) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Slash))) {
+        if (player_.ID == 1 && Input.GetKeyUp(KeyCode.X) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Slash))) {
             if (healing_zone_ != null) {
                 healing_zone_.Deactivate();
-                player.StartMovement();
+                this_animator_.SetBool("healing_", false);
+                player_.StartMovement();
             }
         }
 
-        if (player.ID == 1 && Input.GetKeyDown(KeyCode.X) || (player.ID == 2 && Input.GetKeyDown(KeyCode.Slash))) {
+        if (player_.ID == 1 && Input.GetKeyDown(KeyCode.X) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Slash))) {
             if (healing_zone_ != null) {
                 healing_zone_.Activate(Health.Faction.PLAYER);
-                player.StopMovement();
+                this_animator_.SetBool("healing_", true);
+                player_.StopMovement();
             }
         }
 
-        if (blueprinting_) {
-            if (player.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
+        if (laying_mine_) {
+            if (Time.time > finish_laying_mine_) {
+                laying_mine_ = false;
+                this_animator_.SetBool("laying_mine_", false);
                 pre_landmine_.Construct();
-                blueprinting_ = false;
+                player_.StartMovement();
             }
-        } else if (player.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
-            pre_landmine_.Blueprint();
-            blueprinting_ = true;
+        } else {
+            if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+                pre_landmine_.Blueprint();
+                player_.StopMovement();
+                finish_laying_mine_ = Time.time + 0.5f;
+                laying_mine_ = true;
+                this_animator_.SetBool("laying_mine_", true);
+            }
         }
+        //} else if (player.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+
+        //    blueprinting_ = true;
+        //}
     }
 }
