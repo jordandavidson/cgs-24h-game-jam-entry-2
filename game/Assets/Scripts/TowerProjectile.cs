@@ -19,7 +19,7 @@ public class TowerProjectile : MonoBehaviour {
     // Use this for initialization
     void Start () {
         this_health_ = this.gameObject.GetComponent<Health>();
-        attack_range_.radius = range_;
+        Update_Range(range_);
 	}
 	
 	// Update is called once per frame
@@ -68,7 +68,13 @@ public class TowerProjectile : MonoBehaviour {
                 direction.Normalize();
 
                 rigidBody.velocity = direction * 10.0f;
+                //Debug.DrawLine(attack_spawn_.position, attack_target_.position, Color.green, 1.0f);
             }
         }
+    }
+
+    void Update_Range(float new_range) {
+        range_ = new_range;
+        attack_range_.radius = range_;
     }
 }

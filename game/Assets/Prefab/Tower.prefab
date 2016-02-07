@@ -42,6 +42,7 @@ GameObject:
   - 65: {fileID: 6571248}
   - 114: {fileID: 11439656}
   - 114: {fileID: 11439658}
+  - 54: {fileID: 5483354}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -144,6 +145,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171248}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5483354
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171246}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6571248
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -180,10 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd5f01da3b086649825f286e9c8572c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 186004, guid: cea62ff00a338594586d5fcb73b867e0, type: 2}
+  projectilePrefab: {fileID: 183690, guid: 88b39d4bd17f6364dbc8b384d588a906, type: 2}
   attack_target_: {fileID: 0}
   attack_spawn_: {fileID: 439658}
-  attack_range_: {fileID: 0}
+  attack_range_: {fileID: 13539658}
   attack_cooldown_: .5
   next_attack_: 0
   range_: 5
