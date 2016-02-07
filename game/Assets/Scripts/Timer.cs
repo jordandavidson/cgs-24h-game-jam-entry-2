@@ -64,6 +64,7 @@ public class Timer : MonoBehaviour {
         if (m_EventArgs.DeltaTime >= TickPeriod)
         {
             ++m_EventArgs.Ticks;
+            gameTime++;
 
             if (OnTimerTick != null)
             {
