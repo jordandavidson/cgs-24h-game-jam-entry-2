@@ -45,7 +45,7 @@ public class Magic : MonoBehaviour {
                 player_.ResumeMovement();
             }
         } else {
-            if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+            if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Slash))) {
                 pre_landmine_.Blueprint();
                 player_.StopMovement();
                 finish_laying_mine_ = Time.time + 0.5f;
