@@ -4,6 +4,8 @@ public class FireProjectile : MonoBehaviour {
 
     public GameObject projectilePrefab;
 
+    public Transform firing_point_;
+
     private Player player;
 
 	// Use this for initialization
@@ -14,12 +16,12 @@ public class FireProjectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (player.ID == 1 && Input.GetKeyUp(KeyCode.Space) || (player.ID == 2 && Input.GetKeyUp(KeyCode.RightShift))) {
+        if (player.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
             if (!player)
                 return;
 
             var projectile = Instantiate(projectilePrefab,
-                                            transform.position + new Vector3(1.0f, 0.0f, 0.0f),
+                                            firing_point_.position,
                                             Quaternion.identity) as GameObject;
 
             var rigidBody = projectile.GetComponent<Rigidbody>();
