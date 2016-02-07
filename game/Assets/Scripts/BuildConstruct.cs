@@ -42,7 +42,7 @@ public class BuildConstruct : MonoBehaviour {
             if (blueprinting_) {
                 // Already preparing to build
                 if ((player_.ID == 1 && Input.GetKeyUp(KeyCode.X) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Slash))) ||
-                    (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Greater)))) {
+                    (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.RightShift)))) {
                     blueprinting_ = false;
                     building_ = true;
                     this_animator_.SetBool("repairing_", false);
@@ -56,7 +56,9 @@ public class BuildConstruct : MonoBehaviour {
                     this_animator_.SetBool("repairing_", true);
                     pre_wall_.Blueprint();
                     blueprinting_ = true;
-                } else if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+                }
+                else if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.RightShift)))
+                {
                     player_.ReduceMovement();
                     this_animator_.SetBool("repairing_", true);
                     pre_tower_.Blueprint();

@@ -14,11 +14,13 @@ public class Shield : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+        if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.RightShift))) {
             shield_.SetActive(true);
             this_animator_.SetBool("marching_", true);
             player_.ReduceMovement();
-        } else if (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
+        }
+        else if (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.RightShift)))
+        {
             player_.ResumeMovement();
             shield_.SetActive(false);
             this_animator_.SetBool("marching_", false);
