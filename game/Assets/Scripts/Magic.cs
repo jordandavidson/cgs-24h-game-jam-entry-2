@@ -25,7 +25,7 @@ public class Magic : MonoBehaviour {
             if (healing_zone_ != null) {
                 healing_zone_.Deactivate();
                 this_animator_.SetBool("healing_", false);
-                player_.StartMovement();
+                player_.ResumeMovement();
             }
         }
 
@@ -42,7 +42,7 @@ public class Magic : MonoBehaviour {
                 laying_mine_ = false;
                 this_animator_.SetBool("laying_mine_", false);
                 pre_landmine_.Construct();
-                player_.StartMovement();
+                player_.ResumeMovement();
             }
         } else {
             if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {

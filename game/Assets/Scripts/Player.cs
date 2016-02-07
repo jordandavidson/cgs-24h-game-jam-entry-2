@@ -62,11 +62,15 @@ public class Player : MonoBehaviour {
 
 	}
 
-    public void StartMovement() {
+    public void ResumeMovement() {
         MovementSpeed = DesiredSpeed;
     }
 
     public void StopMovement() {
         MovementSpeed = 0.0f;
+    }
+
+    public void ReduceMovement() {
+        MovementSpeed = DesiredSpeed * 0.5f;
     }
 }

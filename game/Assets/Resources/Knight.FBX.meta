@@ -72,12 +72,11 @@ ModelImporter:
     400064: //RootNode
     400066: knight001
     4300000: knight001
-    7400000: Knight_Walk_Forward
-    7400002: Knight_Walk_Backward
+    7400000: Knight_Walk_Forwards
+    7400002: Knight_Walk_Backwards
     7400004: Knight_Shield_Bash
-    7400006: Knight_March_Forward
+    7400006: Knight_March
     9500000: //RootNode
-    11100000: //RootNode
     13700000: knight001
   materials:
     importMaterials: 1
@@ -88,7 +87,7 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -96,7 +95,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Knight_Walk_Forward
+      name: Knight_Walk_Forwards
       takeName: Take 001
       firstFrame: 0
       lastFrame: 60
@@ -105,7 +104,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -220,7 +219,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Knight_Walk_Backward
+      name: Knight_Walk_Backwards
       takeName: Take 001
       firstFrame: 65
       lastFrame: 125
@@ -229,7 +228,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -346,8 +345,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Knight_Shield_Bash
       takeName: Take 001
-      firstFrame: 125
-      lastFrame: 200
+      firstFrame: 130
+      lastFrame: 190
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -468,7 +467,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Knight_March_Forward
+      name: Knight_March
       takeName: Take 001
       firstFrame: 195
       lastFrame: 255
@@ -477,7 +476,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -594,7 +593,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

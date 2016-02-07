@@ -2,48 +2,54 @@
 
 public class Shield : MonoBehaviour {
 
-    public GameObject shieldBash;
+    public GameObject shield_;
 
-    private Player player;
+    public Animator this_animator_;
+
+    public Player player_;
 
 	void Start () {
 
-        player = gameObject.transform.parent.gameObject.GetComponent<Player>();
+        player_ = this.gameObject.GetComponent<Player>();
 	}
 	
 	void Update () {
-	
-        
-	}
+        if (player_.ID == 1 && Input.GetKeyDown(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyDown(KeyCode.Greater))) {
+            shield_.SetActive(true);
+            this_animator_.SetBool("marching_", true);
+            player_.ReduceMovement();
+        } else if (player_.ID == 1 && Input.GetKeyUp(KeyCode.Z) || (player_.ID == 2 && Input.GetKeyUp(KeyCode.Greater))) {
+            player_.ResumeMovement();
+            shield_.SetActive(true);
+            this_animator_.SetBool("marching_", false);
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.name.Contains("Projectile"))
-        {
-            //if (Input.GetKeyDown(KeyCode.RightShift))
-            //{
-                collision.rigidbody.velocity -= new Vector3(10.0f, 0.0f, 0.0f);
+        Health collided_health = collision.gameObject.GetComponent<Health>();
+        if (collided_health == null) {
+            //if (collision.transform.name.Contains("Projectile")) {
+            //    //if (Input.GetKeyDown(KeyCode.RightShift))
+            //    //{
+            //    collision.rigidbody.velocity -= new Vector3(10.0f, 0.0f, 0.0f);
+            //    //}
+
+
+
+            //    //Destroy(collision.gameObject);
             //}
-            
-            
-            
-            //Destroy(collision.gameObject);
-        }
-
-
-        if (collision.transform.name.Contains("Enemy"))
-        {
-            collision.rigidbody.velocity += new Vector3(20.0f, 0.0f, 0.0f);
-        }
-
-        if (collision.transform.name.Contains("Player1"))
-        {
-            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.RightShift))
-            {
-
-
-                //collision.rigidbody.velocity += new Vector3(10.0f, 0.0f, 0.0f);
+        } else {
+            if (collided_health.Is_Faction(Health.Faction.PLAYER)) {
+                // They're on our side, so ignore them...
+            } else {
+                // Knock the enemies back!
+                collision.rigidbody.velocity += new Vector3(20.0f, 0.0f, 0.0f);
             }
         }
+
+
+
+
     }
 }
