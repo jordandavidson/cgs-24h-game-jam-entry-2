@@ -201,8 +201,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hunter: {fileID: 160176, guid: 88fc849b2a4db6c4ba7124233e6251c6, type: 2}
   Wizard: {fileID: 140022, guid: ef7fc6eacbcd42949968f405c404b144, type: 2}
-  Builder: {fileID: 136182, guid: 42fa94c4730607c4ea789b7ce905ecf8, type: 2}
+  Builder: {fileID: 127658, guid: 947c4573157c1f54296a46934ea08556, type: 2}
   Knight: {fileID: 158596, guid: ee763c998104e00438ea9b2b22253876, type: 2}
+  spawnLocation: {fileID: 0}
+  playerID: 1
 --- !u!114 &11487296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,12 +265,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 174692}
-        m_MethodName: 
+      - m_Target: {fileID: 11474692}
+        m_MethodName: SelectHunter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -366,7 +369,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11487306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11474692}
+        m_MethodName: SelectWizard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11487306
@@ -449,7 +464,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11487308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11474692}
+        m_MethodName: SelectBuilder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11487312
@@ -537,7 +564,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11487314}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11474692}
+        m_MethodName: SelectKnight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11487318
@@ -776,7 +815,7 @@ RectTransform:
   m_GameObject: {fileID: 187314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .981595159, y: .981595159, z: .981595159}
   m_Children:
   - {fileID: 22487302}
   - {fileID: 22487308}
@@ -788,7 +827,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -6, y: -1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22487316
